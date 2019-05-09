@@ -18,6 +18,10 @@
    
    Hyperledger Sawtooth, being an open-source business blockchain, is suitable for this scenario. The network being Byzantine Fault-tolerant, ensures that the network is kept up and running even if a node is not online or is disconnected. The permissioning (policies and roles) in Sawtooth ensures that there is control over who is allowed to do what kind of transactions.
 
+## Components
+
+1. **Client**: The client application is developed using Express & Node.js, with Handlebars templates for the web pages.
+2. **Transaction Processors**: The Donor.Me system consists of two Transactions Processors (one for each Family, DOHKERALA and DOHTVPM).  The transactions processors are  developed in Javascript. 
 
 ### System requirements:
 
