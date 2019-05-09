@@ -1,0 +1,88 @@
+{{!-- Page to list all registered Patients in the system. --}}
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="/listPatients">Donor.Me</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/listPatients">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/registerPatient">Register Patient</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/listPatients">Patient List</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/registerDonor">Register Donor</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/listDonors">Donor List</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/editDonor">Edit Donor</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/listBlocks"> Block List</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/listBatches"> Batch List</a>
+      </li>
+    </ul>
+  </div>
+  <button onclick="logout()" class="btn btn-primary" style="float:right; display:block; margin-right:0px; clear:left;"
+    type="submit">Logout</button>
+</nav>
+<br>
+<div class="container-fluid" id="container2">
+  <h1 class="text-center">Patient Details</h1>
+  <br>
+  <table id="patientDetails" class="table table-striped">
+    <thead class="thead-dark">
+      <tr>
+        <th>Registration Number</th>
+        <th>Contact Number</th>
+        <th>Registration Date</th>
+        <th>Blood Group</th>
+        <th>Kidney Choice</th>
+        <th>Kidney Status</th>
+        <th>Heart Choice</th>
+        <th>Heart Status</th>
+        <th>Liver Choice</th>
+        <th>Liver Status</th>
+        <th>Patient Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#listings}}
+      <tr class="">
+        <td>{{pRegNum}}</td>
+        <td>{{pContact}}</td>
+        <td>{{pRegDate}}</td>
+        <td>{{pBloodGroup}}</td>
+        <td>{{pKidneyChoice}}</td>
+        <td>{{pKidneyStatus}}</td>
+        <td>{{pHeartChoice}}</td>
+        <td>{{pHeartStatus}}</td>
+        <td>{{pLiverChoice}}</td>
+        <td>{{pLiverStatus}}</td>
+        <td>{{pStatus}}</td>
+      </tr>
+      {{/listings}}
+    </tbody>
+  </table>
+</div>
+
+<footer class="footer bg-dark" style="text-align: center; position:absolute; bottom: 0; width:100%; font-size:1.4em ">
+  <div class="container">
+    <br>
+    <span class="text-light">Lists details of all registered Patients in the network.</span>
+    <span class="text-light">Kidney, Heart, and Liver status gets updated when an Organ match is made (if organ choice
+      is 'Requested').</span>
+    <br><br>
+  </div>
+</footer>

@@ -1,0 +1,26 @@
+{
+  "name": "processor",
+  "version": "1.0.0",
+  "description": "Transaction Processor for Donor.Me using sawtooth js sdk",
+  "main": "transactionProcessor.js",
+  "scripts": {
+    "start": "node transactionProcessor.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "contributors": [
+    "Jito K J",
+    "Anoop E V",
+    "Lakshmi R"
+  ],
+  "dependencies": {
+    "crypto": "^1.0.1",
+    "protobufjs": "^6.7.3",
+    "sawtooth-sdk": "^1.0.2",
+    "secp256k1": "^3.2.5",
+    "text-encoding": "^0.6.4",
+    "uuid": "^3.0.1",
+    "zeromq": "^4.2.1"
+  },
+  "author": "",
+  "license": "ISC"
+}

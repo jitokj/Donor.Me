@@ -1,0 +1,185 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="/editDonor">Donor.Me</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav">
+      <li class="nav-item ">
+        <a class="nav-link" href="/listPatients">Home <span class="sr-only">(current)</span></a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="/registerPatient">Register Patient</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/listPatients">Patient List</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/registerDonor">Register Donor</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/listDonors">Donor List</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/editDonor">Edit Donor</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/listBlocks"> Block List</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/listBatches"> Batch List</a>
+      </li>
+    </ul>
+  </div>
+  <button onclick="logout()" class="btn btn-primary" style="float:right; display:block; margin-right:0px; clear:left;"
+    type="submit">Logout</button>
+</nav>
+
+<div class="container" id="container2">
+  <div class="card text-center">
+    <div class="card-header">
+      <h3>Donor Update</h3>
+    </div>
+    <div class="card-body">
+      <form action="editDonor/post" method="post">
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="donorRegNum"><strong>Donor Registration Number</strong></label>
+            <input type="" class="form-control" name="donorRegNum" id="donorRegNum"
+              placeholder="Donor Registration Number" required>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="dBloodGroup"><strong>Donor BloodGroup</strong></label>
+            <select class="custom-select form-control" name="dBloodGroup" id="dBloodGroup"
+              title="Please Select Blood Group" required>
+              <option selected disabled>Choose Blood Group</option>
+              <option value="O-">O-</option>
+              <option value="O+">O+</option>
+              <option value="A-">A-</option>
+              <option value="A+">A+</option>
+              <option value="B-">B-</option>
+              <option value="B+">B+</option>
+              <option value="AB-">AB-</option>
+              <option value="AB+">AB+</option>
+            </select>
+          </div>
+          <div class="form-group col-md-12">
+            <button class="btn btn-primary" type="submit">Search</button>
+          </div>
+        </div>
+      </form>
+      <form>
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <label for="dRegNum1"><strong>Registration Number</strong></label>
+            <input type="text" class="form-control" value="{{dRegNum1}}" id="dRegNum1" name="dRegNum"
+              placeholder="Registration Number" readonly>
+          </div>
+          <div class="form-group col-md-4">
+            <label for="contactNo"><strong>Contact Details</strong></label>
+            <input type="text" class="form-control" value="{{dContact}}" id="contactNo" name="dContactDetails"
+              placeholder="Contact Details" readonly>
+          </div>
+          <div class="form-group col-md-4">
+            <label for="bloodGroup1"><strong>Blood Group</strong></label>
+            <input type="text" class="form-control" id="dBloodGroup1" value="{{dBloodGroup1}}" name="dBloodGroup"
+              placeholder="Donor BloodGroup" readonly>
+          </div>
+          <div class="form-group col-md-4">
+            <input type="text" class="form-control" id="dHKeyHash" value="{{dHKeyHash}}" name="dHKeyHash"
+              placeholder="dHKeyHash" hidden>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <label for="dName"><strong>Donor Name</strong></label>
+            <input type="text" class="form-control" id="dName" value="{{dName}}" name="dName" placeholder="Donor Name"
+              readonly>
+          </div>
+          <div class="form-group col-md-4">
+            <label for="dob"><strong>Date of Birth</strong></label>
+            <input type="text" class="form-control" id="dob" value="{{dDob}}" name="dDOB" placeholder="Date of Birth"
+              readonly>
+          </div>
+          <div class="form-group col-md-4">
+            <label for="regDate"><strong>Date of Registration</strong></label>
+            <input type="text" class="form-control" id="regDate" value="{{dRegDate}}" name="dDOR"
+              placeholder="Date of Registration" readonly>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="dod"><strong>Date of Demise</strong></label>
+            <input type="text" class="form-control" onfocus="(this.type='date')" id="dod" name="dDod"
+              placeholder="Date of Demise" required>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="tod"><strong>Time of Death</strong></label>
+            <input type="time" class="form-control" onfocus="(this.type='time')" id="tod" name="dTod"
+              placeholder="Time of Death" required>
+          </div>
+        </div>
+        <p><strong> Organ Details</strong></p>
+        <div class="form-row">
+
+          <div class="form-group col-md-6">
+            <label for="dKidneyChoice"><strong>Kidney</strong></label>
+            <input type="text" class="form-control" id="dKidneyChoice" value="{{dKidneyStatus}}" name="dKidneyChoice"
+              placeholder="Kidney Choice" readonly>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="dKidneyStatus"><strong>Kidney Viability</strong></label>
+            <select class="custom-select form-control" id="dKidneyStatus" name="dKidneyStatus"
+              title="Please select Kidney Viability status" required>
+              <option selected value="Viable">Viable</option>
+              <option value="Not Viable">Not Viable</option>
+            </select>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="dHeartChoice"><strong>Heart</strong></label>
+            <input type="text" class="form-control" id="dHeartChoice" value="{{dHeartStatus}}" name="dHeartChoice"
+              placeholder="Heart Choice" readonly>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="dHeartStatus"><strong>Heart Viability</strong></label>
+            <select class="custom-select form-control" id="dHeartStatus" name="dHeartStatus"
+              title="Please select Heart Viability status" required>
+              <option selected value="Viable">Viable</option>
+              <option value="Not Viable">Not Viable</option>
+            </select>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="dLiverChoice"><strong>Liver</strong></label>
+            <input type="text" class="form-control" id="dLiverChoice" value="{{dLiverStatus}}" name="dLiverChoice"
+              placeholder="Liver Choice" readonly>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="dLiverStatus"><strong>Liver Viability</strong></label>
+            <select class="custom-select form-control" id="dLiverStatus" name="dLiverStatus"
+              title="Please select Liver Viability status" required>
+              <option selected value="Viable">Viable</option>
+              <option value="Not Viable">Not Viable</option>
+            </select>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary" onclick="editDonor(event)">Update</button>
+        <button type="reset" class="btn btn-default" style="background-color: rgb(28, 163, 152); color: white;">
+          Clear
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<footer class="footer bg-dark" style="text-align: center; position:relative; bottom: 0; width:100%; font-size:1.4em ">
+  <div class="container">
+    <br>
+    <span class="text-light">Search for Donor using Registration Number and Blood Group.</span>
+    <span class="text-light">Update Donor Date and Time of Death, and organ Viability statuses (If Donor hasn't
+      registered an organ, viability marked as 'Not Viable' automatically).</span>
+    <br><br>
+  </div>
+</footer>

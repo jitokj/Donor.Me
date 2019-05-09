@@ -1,0 +1,125 @@
+{{!-- Registration page for Donors. --}}
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/registerDonor">Donor.Me</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="/listPatients">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/registerPatient">Register Patient</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/listPatients">Patient List</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/registerDonor">Register Donor</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/listDonors">Donor List</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/editDonor">Edit Donor</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/listBlocks"> Block List</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/listBatches"> Batch List</a>
+            </li>
+        </ul>
+    </div>
+    <button onclick="logout()" class="btn btn-primary" style="float:right; display:block; margin-right:0px; clear:left;"
+        type="submit">Logout</button>
+</nav>
+<div class="container" id="container2">
+    <div class="card text-center">
+        <div class="card-header">
+            <h3>Donor Registration</h3>
+        </div>
+        <div class="card-body">
+            <form>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="aadhaar"><strong>Donor Aadhaar</strong></label>
+                        <input type="text" class="form-control" id="d_aadhaar" placeholder="Donor Aadhaar">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="donorName"><strong>Donor Name</strong></label>
+                        <input type="text" class="form-control" id="donorName" placeholder="Donor Name">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="contactNo"><strong>Contact Details</strong></label>
+                        <input type="text" class="form-control" id="d_contactNo" placeholder="Contact Details">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="bloodGroup"><strong>Blood Group</strong></label>
+                        <select class="custom-select form-control" id="d_bloodGroup" title="Please Select Blood Group"
+                            required>
+                            <option selected disabled>Choose Blood Group</option>
+                            <option value="O-">O-</option>
+                            <option value="O+">O+</option>
+                            <option value="A-">A-</option>
+                            <option value="A+">A+</option>
+                            <option value="B-">B-</option>
+                            <option value="B+">B+</option>
+                            <option value="AB-">AB-</option>
+                            <option value="AB+">AB+</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="d_dob"><strong>Date of Birth</strong></label>
+                        <input type="text" class="form-control" onfocus="(this.type='date')" id="d_dob"
+                            placeholder="Date of Birth">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="d_regDate"><strong>Date of Registration</strong></label>
+                        <input type="text" class="form-control" onfocus="(this.type='date')" id="d_regDate"
+                            placeholder="Date of Registration">
+                    </div>
+                </div>
+                <p><strong>Donor Organs</strong></p>
+                <div class="container">
+                    <div class="form-row" id="checkBox">
+                        <div class="custom-control custom-checkbox col-md-4">
+                            <input type="checkbox" class="custom-control-input" id="customCheck1" checked>
+                            <label class="custom-control-label" for="customCheck1"> <strong>Kidney</strong> </label>
+                        </div>
+                        <div class="custom-control custom-checkbox col-md-4">
+                            <input type="checkbox" class="custom-control-input" id="customCheck2">
+                            <label class="custom-control-label" for="customCheck2"> <strong>Heart</strong> </label>
+                        </div>
+                        <div class="custom-control custom-checkbox col-md-4">
+                            <input type="checkbox" class="custom-control-input" id="customCheck3">
+                            <label class="custom-control-label" for="customCheck3"> <strong>Liver</strong> </label>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <button type="submit" class="btn btn-primary" onclick="registerDonor(event)">Register</button>
+                <button type="reset" class="btn btn-default" style="background-color: rgb(28, 163, 152); color: white;">
+                    Clear
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+<footer class="footer bg-dark" style="text-align: center; position:absolute; bottom: 0; width:100%; font-size:1.4em ">
+    <div class="container">
+        <br>
+        <span class="text-light">After registering a new Donor, check in Block List page for transaction details.</span>
+        <br>
+        <span class="text-light">Search using Transaction ID listed to view registration confirmation.</span>
+        <br><br>
+    </div>
+</footer>
+<script src="javascripts/socket.io.js"></script>

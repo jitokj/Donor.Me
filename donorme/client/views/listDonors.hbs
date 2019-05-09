@@ -1,0 +1,90 @@
+{{!-- Page to list all registered Donors in the system. --}}
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="/listDonors">Donor.Me</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/listPatients">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/registerPatient">Register Patient</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/listPatients">Patient List</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/registerDonor">Register Donor</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/listDonors">Donor List</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/editDonor">Edit Donor</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/listBlocks"> Block List</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/listBatches"> Batch List</a>
+      </li>
+    </ul>
+  </div>
+  <button onclick="logout()" class="btn btn-primary" style="float:right; display:block; margin-right:0px; clear:left;"
+    type="submit">Logout</button>
+</nav>
+<br>
+<div class="container-fluid" id="container2">
+  <h1 class="text-center">Donor Details</h1>
+  <br>
+  <table id="donorDetails" class="table table-striped">
+    <thead class="thead-dark">
+      <tr>
+        <th>Registration Number</th>
+        <th>Contact Number</th>
+        <th>Registration Date</th>
+        <th>Blood Group</th>
+        <th>Kidney Choice</th>
+        <th>Kidney Status</th>
+        <th>Heart Choice</th>
+        <th>Heart Status</th>
+        <th>Liver Choice</th>
+        <th>Liver Status</th>
+        <th>Donor Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#listings}}
+      <tr class="">
+        <td>{{dRegNum}}</td>
+        <td>{{dContact}}</td>
+        <td>{{dRegDate}}</td>
+        <td>{{dBloodGroup}}</td>
+        <td>{{dKidneyChoice}}</td>
+        <td>{{dKidneyStatus}}</td>
+        <td>{{dHeartChoice}}</td>
+        <td>{{dHeartStatus}}</td>
+        <td>{{dLiverChoice}}</td>
+        <td>{{dLiverStatus}}</td>
+        <td>{{dStatus}}</td>
+      </tr>
+      {{/listings}}
+    </tbody>
+  </table>
+</div>
+
+<footer class="footer bg-dark" style="text-align: center; position:absolute; bottom: 0; width:100%; font-size:1.4em ">
+  <div class="container">
+    <br>
+    <span class="text-light">Lists details of all registered Donors in the network. Copy Registration Number and Blood
+      Group to search and edit Donor details.</span>
+    <span class="text-light">Kidney, Heart, Liver and Donor status gets updated when the Donor is edited, or when an
+      Organ match is made.</span>
+    <br><br>
+  </div>
+</footer>

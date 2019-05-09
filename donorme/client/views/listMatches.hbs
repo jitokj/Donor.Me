@@ -1,0 +1,65 @@
+{{!-- Page to list all the organ matches made in the system. --}}
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="/home">Donor.Me</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/waitlistKidney">Kidney WaitList</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/waitlistHeart">Heart WaitList</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/waitlistLiver">Liver WaitList</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/listMatches"> Organ Match Log</a>
+      </li>
+    </ul>
+  </div>
+  <button onclick="logout()" class="btn btn-primary" style="float:right; display:block; margin-right:0px; clear:left;"
+    type="submit">Logout</button>
+</nav>
+<br>
+<div class="container-fluid" id="container2">
+  <h1 class="text-center">{{title}}</h1>
+  <br>
+  <table id="blockList" class="table table-striped">
+    <thead class="thead-dark">
+      <tr>
+        <th>Waitlist Address</th>
+        <th>Organ</th>
+        <th>BloodGroup</th>
+        <th>Patient RegNumber</th>
+        <th>Donor RegNumber</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#listings}}
+      <tr class="">
+        <td>{{wlAddress}}</td>
+        <td>{{organ}}</td>
+        <td>{{bloogGroup}}</td>
+        <td>{{pRegNum}}</td>
+        <td>{{dRegNum}}</td>
+      </tr>
+      {{/listings}}
+    </tbody>
+  </table>
+</div>
+
+<footer class="footer bg-dark" style="text-align: center; position:absolute; bottom: 0; width:100%; font-size:1.4em ">
+  <div class="container">
+    <br>
+    <span class="text-light">Log of all matches made in Donor.Me system.</span>
+    <br><br>
+  </div>
+</footer>

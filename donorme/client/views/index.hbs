@@ -1,0 +1,45 @@
+{{!-- Login page for all DonorMe users. --}}
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="/">Donor.Me</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+      </li>
+  </div>
+</nav>
+<div class="container" id="container1">
+  <div class="card text-center">
+    <div class="card-header">
+      <img src="/images/ima.png" class="rounded d-block mx-auto" style="width:100px">
+      <h2>{{title}}</h2>
+    </div>
+    <div class="card-body">
+      <form>
+        <label><strong>Login using Registered ID</strong> </label>
+        <br>
+        <input type="text" id="loginID" placeholder="Registered ID">
+        <br><br>
+        <button type="submit" class="btn btn-primary" onclick="login(event)">Sign In</button>
+        <button type="reset" class="btn btn-default" style="background-color: rgb(28, 163, 152); color: white;">
+          Clear
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+<footer class="footer bg-dark" style="text-align: center; position:absolute; bottom: 0; width:100%; font-size:1.4em ">
+  <div class="container">
+    <br>
+    <span class="text-light">Registered Hospitals in the network are h1, h2, h3. Department login is dohtvpm.</span>
+    <br>
+    <span class="text-light">(All login IDs are in lower-case)</span>
+    <br>
+    <br>
+  </div>
+</footer>

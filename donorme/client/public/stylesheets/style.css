@@ -1,0 +1,32 @@
+body {
+  /* padding: 50px; */
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.card-header {
+  color: white;
+  background-color: rgb(93, 64, 133);
+}
+.card-body {
+  background-color: rgb(170, 187, 187);
+}
+
+#checkBox {
+  margin: 0 auto;
+  text-align: center;
+  font-size: 16px;
+}
+
+#patientDetails {
+  border: 0.5px;
+}
+
+#iframe_a {
+  color: yellow;
+  font: italic;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}

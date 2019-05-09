@@ -1,0 +1,66 @@
+{{!-- Page to display Patient details who are in waitlist for Liver. --}}
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="/home">Donor.Me</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/waitlistKidney">Kidney WaitList</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/waitlistHeart">Heart WaitList</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/waitlistLiver">Liver WaitList</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/listMatches"> Organ Match Log</a>
+      </li>
+    </ul>
+  </div>
+  <button onclick="logout()" class="btn btn-primary" style="float:right; display:block; margin-right:0px; clear:left;"
+    type="submit">Logout</button>
+</nav>
+<br>
+<div class="container" id="container2">
+  <h1 class="text-center">{{title}}</h1>
+  <div class="text-center mx-auto">
+    <button class="btn btn-primary" onclick="checkWaitlistMatch('Liver')">Check Donor Liver Availability</button>
+  </div>
+  <br>
+  <table id="liverWaitlist" class="table table-striped">
+    <thead class="thead-dark">
+      <tr>
+        <th>Registration Number</th>
+        <th>Blood Group</th>
+        <th>Liver Waitlist Number</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#listing}}
+      <tr class="">
+        <td>{{pRegNum}}</td>
+        <td>{{pBloodGroup}}</td>
+        <td>{{pLiverCounter}}</td>
+      </tr>
+      {{/listing}}
+    </tbody>
+  </table>
+</div>
+<footer class="footer bg-dark" style="text-align: center; position:absolute; bottom: 0; width:100%; font-size:1.4em ">
+  <div class="container">
+    <br>
+    <span class="text-light">Lists details of all Patients who are waiting for a Liver match.</span>
+    <span class="text-light">Click on 'Check Donor Liver Availability' to find matches for Patients with Waitlist Number
+      = 1. View all matches made in Organ Match Log page.</span>
+    <br><br>
+  </div>
+</footer>
