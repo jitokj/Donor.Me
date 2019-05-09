@@ -142,5 +142,5 @@
 
 
 ##### Created by: 
-###### Github: @jitokj @anoopev @lakshmi11rv
+###### Github: jitokj anoopev lakshmi11rv
 ###### GitLab: @jitokj @anoopv @Lakshmi_Ravindranath
