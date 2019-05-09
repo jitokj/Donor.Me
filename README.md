@@ -12,7 +12,11 @@
 
 
 ## Project Description
-
+   Donor.Me is a proof-of-concept for organ donation and matching that has been implemented on Hyperledger Sawtooth. For a system that handles patient records, security of the information being stores is a necessity, and the system needs to be transparent and auditable (at a higher-level). It is also imperative that the records are reliable, and that there is no chance for replicating data or identity fraud. There cannot be any middle-men or third-parties who can bypass the system and procure or sell organs to patients.
+   
+   Blockchain networks address these issues by providing distributed ledgers that are immutable in nature, and control the user access to the network. The distributed ledgers ensure that the data cannot be manipulated by any of the parties involved, as each participant of the network has a copy of the database, and there is a protocol (consensus) that ensures that there is an agreement regarding the state of the ledger.
+   
+   Hyperledger Sawtooth, being an open-source business blockchain, is suitable for this scenario. The network being Byzantine Fault-tolerant, ensures that the network is kept up and running even if a node is not online or is disconnected. The permissioning (policies and roles) in Sawtooth ensures that there is control over who is allowed to do what kind of transactions.
 
 
 ### System requirements:
