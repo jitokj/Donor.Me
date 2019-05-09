@@ -1,6 +1,3 @@
-<p align="right">
-  <img src="donorme/client/public/images/sawtooth_logo_light_blue-small.png" width="230" height="50">
-</p>
 
 # Donor.Me 
 ##### *A blockchain-based Organ Donation & Matching System*
@@ -40,110 +37,101 @@
 
 1. Ensure that NodeJS (version 8.15 ideally) is installed in the system. For more information about NodeJS, go to https://nodejs.org. To check if installed, open a terminal window:
 
-   ```$ node -v```
+   $ node -v
 2. If NodeJS is not installed, go to https://nodejs.org and download the compatible version (version 8.15) based on system OS, or in a terminal window:
 
-   ```$ sudo apt-get install -y nodejs```
+   $ sudo apt-get install -y nodejs
 3. Ensure that Docker is installed. Docker is a platform for developers and system administrators to develop, ship, and run applications. For more information, go to https://www.docker.com/resources/what-container. To check if installed, in terminal window:
 
-    ```$ sudo docker --version```
+    $ sudo docker --version
 4. If Docker is not installed, in terminal window:
 
     **Set up the repository**
 *   Update the apt package index:
 
-    ```$ sudo apt-get update```
+    $ sudo apt-get update
 *   Install packages to allow apt to use a repository over HTTPS:
 
-    ```
     $ sudo apt-get install \
     apt-transport-https \
     ca-certificates \
     curl \
     gnupg-agent \
     software-properties-common
-    ```
+    
 *   Add Docker’s official GPG key:
 
-    ```$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -```
+    $ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 *   Use the following command to set up the stable repository.
-    ```
+    
     $ sudo add-apt-repository \
     "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
     $(lsb_release -cs) \
     stable"
-    ```
+    
     **Install Docker CE**
 *   Update the apt package index.
 
-    ```$ sudo apt-get update```
+    $ sudo apt-get update
 *   Install the latest version of Docker CE.
 
-    ```$ sudo apt-get install docker-ce```
+    $ sudo apt-get install docker-ce
 *   Verify that Docker CE is installed correctly by running the hello-world image.
 
-    ```$ sudo docker run hello-world```
+    $ sudo docker run hello-world
     
    This command downloads a test image and runs it in a container. When the container runs, it prints an informational message and exits.
    
 5. Ensure that Docker Compose is installed. Compose is a tool for defining and running multi-container Docker applications. To check if installed, in terminal window:
 
-   ```$ sudo docker-compose --version```
+   $ sudo docker-compose --version
 6. If Docker Compose is not installed, in terminal window:
 
-   ```
    $ sudo apt-get update
    $ sudo apt-get install docker-compose
-   ```
 
 ### Installation/Set-up instructions:
 
 1. Run the project YAML file using Docker Compose (docker-compose.yaml in donorme folder). Open a terminal window in the project folder:
 
-   ```$ sudo docker-compose up```
+   $ sudo docker-compose up
 2. Compose pulls and builds an image for the code, and starts the services defined in it. In the client dockerfile, it is specified to create all the department and hospitals keys required for making transactions in the network. Permissions need to be set for these keys to restrict their actions. 
 3. Open validator bash shell to set the permissions for the network. In another terminal window in the project folder (CTRL+SHIFT+T when in terminal):
 
-   ```$ sudo docker exec -it validator bash```
+   $ sudo docker exec -it validator bash
 4. Copy the below commands to create a proposal, create two policies and assign roles to the keys generated for the two policies. Paste the below code completely in the validator bash (ensure all the 5 instances of rest-api port are 8008 in the code when pasting in bash shell):
 
-   ```
    sawset proposal create --key  ~/.sawtooth/keys/my_key.priv  sawtooth.identity.allowed_keys=$(cat ~/.sawtooth/keys/my_key.pub) --url http://rest-api:8008 && sawtooth identity policy create --key /root/.sawtooth/keys/my_key.priv policy_dohtvpm "PERMIT_KEY $(cat /root/.sawtooth/keys/my_key.pub)" "PERMIT_KEY $(cat /root/.sawtooth/keys/h1.pub)" "PERMIT_KEY $(cat /root/.sawtooth/keys/h2.pub)" "PERMIT_KEY $(cat /root/.sawtooth/keys/h3.pub) " --url http://rest-api:8008 && sawtooth identity role create --key ~/.sawtooth/keys/my_key.priv transactor.transaction_signer.DOHTVPM policy_dohtvpm --url http://rest-api:8008 && sawtooth identity policy create --key ~/.sawtooth/keys/my_key.priv policy_dohkerala "PERMIT_KEY $(cat /root/.sawtooth/keys/my_key.pub)" "PERMIT_KEY $(cat /root/.sawtooth/keys/dohtvpm.pub)" --url http://rest-api:8008 && sawtooth identity role create --key ~/.sawtooth/keys/my_key.priv transactor.transaction_signer.DOHKERALA policy_dohkerala --url http://rest-api:8008
-   ```
+
 5. If there are issues copying and runnning the above command, please run the below commands (6 to 10) one-by-one in validator bash (ensure all the 5 instances of rest-api port are 8008 in the code when pasting in bash shell). If step 4 worked without issues, please move on to step 11.
 6. Creating proposal. In validator bash:
 
-   ```
    sawset proposal create --key  ~/.sawtooth/keys/my_key.priv  sawtooth.identity.allowed_keys=$(cat ~/.sawtooth/keys/my_key.pub) --url http://rest-api:8008
-   ```
+   
 7. Creating policy for DOHTVPM family. In validator bash:
 
-   ```
    sawtooth identity policy create --key /root/.sawtooth/keys/my_key.priv policy_dohtvpm "PERMIT_KEY $(cat /root/.sawtooth/keys/my_key.pub)" "PERMIT_KEY $(cat /root/.sawtooth/keys/h1.pub)" "PERMIT_KEY $(cat /root/.sawtooth/keys/h2.pub)" "PERMIT_KEY $(cat /root/.sawtooth/keys/h3.pub) " --url http://rest-api:8008
-   ```
+
 8. Creating role for policy_dohtvpm. In validator bash:
 
-   ```
    sawtooth identity role create --key ~/.sawtooth/keys/my_key.priv transactor.transaction_signer.DOHTVPM policy_dohtvpm --url http://rest-api:8008
-   ```
+
 9. Creating policy for DOHKERALA family. In validator bash:
 
-   ```
    sawtooth identity policy create --key ~/.sawtooth/keys/my_key.priv policy_dohkerala "PERMIT_KEY $(cat /root/.sawtooth/keys/my_key.pub)" "PERMIT_KEY $(cat /root/.sawtooth/keys/dohtvpm.pub)" --url http://rest-api:8008
-   ```
+
 10. Creating role for policy_dohkerala. In validator bash:
 
-   ```
    sawtooth identity role create --key ~/.sawtooth/keys/my_key.priv transactor.transaction_signer.DOHKERALA policy_dohkerala --url http://rest-api:8008
-   ```
+
 11. Open a browser window in Google Chrome. Go to https://localhost:3000
 12. To terminate the app execution, go to the terminal window (where docker-compose is running) and give CTRL+C
 13. Wait for docker-compose to gracefully stop. Then:
 
-    ```$ sudo docker-compose down```
+    $ sudo docker-compose down
 14. After docker-compose down and all the containers have been removed, run the below command to remove the volumes created so that Validator has access to Client keys (IMPORTANT - to avoid issues when running the project again):
 
-    ```$ sudo docker volume rm $(sudo docker volume ls)```
+    $ sudo docker volume rm $(sudo docker volume ls)
 
 
 ### Project conditions:

@@ -1,5 +1,5 @@
 <p align="right">
-  <img src="sawtooth_logo_light_blue-small.png" width="230" height="50">
+  <img src="donorme/client/public/images/sawtooth_logo_light_blue-small.png" width="230" height="50">
 </p>
 
 # Donor.Me 
@@ -7,13 +7,28 @@
 
 
 
-## Project Summary
-   The Kerala Government has an initiative (KNOS - Mrithasanjeevani) established in August, 2012 to maintain records of patients waiting for organ transplants, and for citizens to register as potential organ donors. This initiative is targeted to resolve the ethical and legal issues surrounding live and deceased organ transplantation. The proposed solution (Donor.Me) is a blockchain network, created by the Government of Kerala's Department of Health. Hospitals that are approved for organ transplant are registered in the network by each District's Department of Health, and the hospitals are permitted to register patients who are awaiting transplant, and donors who are willing to donate one or more organs. These hospitals can also update the donor's status and viability of donated organs at the donor's time of death. Patients that are registered are added into organ waitlists, and allocated waitlist numbers based on their blood group and the number of pending organ requests. The Department of Health (District) can check for matching organ donations for the patients with waitlist number 1 in their respective blood groups, and matches the patient details with donor details, removes the patient from the waitlist, and moves the other remaining patients up the waitlist. The Department can view the historical log of all the matches made in the Donor.Me system.
+## Overview
+   The Kerala Government has an initiative (KNOS - Mrithasanjeevani) established in August, 2012 to maintain records of patients waiting for organ transplants, and for citizens to register as potential organ donors. This initiative is targeted to resolve the ethical and legal issues surrounding live and deceased organ transplantation. 
+   
+   The proposed solution (Donor.Me) is a blockchain network, created by the Government of Kerala's Department of Health. Hospitals that are approved for organ transplant are registered in the network by each District's Department of Health, and the hospitals are permitted to register patients who are awaiting transplant, and donors who are willing to donate one or more organs. These hospitals can also update the donor's status and viability of donated organs at the donor's time of death. Patients that are registered are added into organ waitlists, and allocated waitlist numbers based on their blood group and the number of pending organ requests. The Department of Health (District) can check for matching organ donations for the patients with waitlist number 1 in their respective blood groups, and matches the patient details with donor details, removes the patient from the waitlist, and moves the other remaining patients up the waitlist. The Department can view the historical log of all the matches made in the Donor.Me system.
 
 
-## Project Description
+## Description
+   Donor.Me is a proof-of-concept for organ donation and matching that has been implemented on Hyperledger Sawtooth. For a system that handles patient records, security of the information being stores is a necessity, and the system needs to be transparent and auditable (at a higher-level). It is also imperative that the records are reliable, and that there is no chance for replicating data or identity fraud. There cannot be any middle-men or third-parties who can bypass the system and procure or sell organs to patients.
+   
+   Blockchain networks address these issues by providing distributed ledgers that are immutable in nature, and control the user access to the network. The distributed ledgers ensure that the data cannot be manipulated by any of the parties involved, as each participant of the network has a copy of the database, and there is a protocol (consensus) that ensures that there is an agreement regarding the state of the ledger.
+   
+   Hyperledger Sawtooth, being an open-source business blockchain, is suitable for this scenario. The network being Byzantine Fault-tolerant, ensures that the network is kept up and running even if a node is not online or is disconnected. The permissioning (policies and roles) in Sawtooth ensures that there is control over who is allowed to do what kind of transactions.
 
+## Components
 
+1. **Client**: The client application is developed using Express & Node.js, with Handlebars templates for the web pages.
+2. **Transaction Processors**: The Donor.Me system consists of two Transactions Processors (one for each Family, DOHKERALA and DOHTVPM).  The transactions processors are  developed in Javascript. 
+
+## Users
+
+1. **Department of Health**: The Department of Health (using login ‘dohtvpm’), can view all the Patients awaiting organ donations, check for matching donor organs, and view the log of all organ matches completed in the Donor.Me system.
+2. **Hospitals**: The registered hospitals in the Trivandrum network are ‘h1’, ‘h2’, ‘h3’. The hospitals can register Patients and Donors, update Donors, and view Patient Lists, Donor Lists, Block Lists, search for Transaction Receipts, and view Batch Lists.
 
 ### System requirements:
 
@@ -142,5 +157,5 @@
 
 
 ##### Created by: 
-###### Github: @jitokj @anoopev @lakshmi11rv
+###### Github: jitokj anoopev lakshmi11rv
 ###### GitLab: @jitokj @anoopv @Lakshmi_Ravindranath
