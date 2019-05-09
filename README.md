@@ -23,6 +23,11 @@
 1. **Client**: The client application is developed using Express & Node.js, with Handlebars templates for the web pages.
 2. **Transaction Processors**: The Donor.Me system consists of two Transactions Processors (one for each Family, DOHKERALA and DOHTVPM).  The transactions processors are  developed in Javascript. 
 
+## Users
+
+1. **Department of Health**: The Department of Health (using login ‘dohtvpm’), can view all the Patients awaiting organ donations, check for matching donor organs, and view the log of all organ matches completed in the Donor.Me system.
+2. **Hospitals**: The registered hospitals in the Trivandrum network are ‘h1’, ‘h2’, ‘h3’. The hospitals can register Patients and Donors, update Donors, and view Patient Lists, Donor Lists, Block Lists, search for Transaction Receipts, and view Batch Lists.
+
 ### System requirements:
 
 1. Operating system: Ubuntu 16.04
