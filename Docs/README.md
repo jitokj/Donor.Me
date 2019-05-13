@@ -1,5 +1,5 @@
 <p align="right">
-  <img src="donorme/client/public/images/sawtooth_logo_light_blue-small.png" width="230" height="50">
+  <img src="sawtooth_logo_light_blue-small.png" width="230" height="50">
 </p>
 
 # Donor.Me 
