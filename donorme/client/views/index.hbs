@@ -1,5 +1,16 @@
 {{!-- Login page for all DonorMe users. --}}
 
+{{!-- preloader settings --}}
+
+
+<div id = "loader-wrapper">
+  <div id="loader"></div>
+  
+  <div class="loader-section section-left"><h3>Loading completed .....</h3></div>
+  <div class="loader-section section-right"></div>
+</div>
+
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="/">Donor.Me</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -43,3 +54,15 @@
     <br>
   </div>
 </footer>
+
+<link rel="stylesheet" href='/stylesheets/anime.css'>
+<script>
+  $(document).ready(function() {
+	
+	setTimeout(function(){
+		$('body').addClass('loaded');
+    $('h3').css('color','white');
+	}, 2000);
+	
+});
+</script>
